@@ -1,16 +1,21 @@
-FROM python:3.12.2
+FROM python:3.10.8-slim-bullseye
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    build-essential \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /DreamxBotz
+# Copy Python dependencies and install
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -U pip
+RUN pip install --no-cache-dir -U -r /requirements.txt
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip --root-user-action=ignore && \
-    pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
+RUN pip install --no-cache-dir edge-tts
 
+# Create working directory
+WORKDIR /Neon-Bot
 COPY . .
 
-CMD ["python3", "bot.py"]
+# Run the bot
+CMD ["python", "bot.py"]
