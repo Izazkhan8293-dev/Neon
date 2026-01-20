@@ -1,11 +1,15 @@
 pyrofork==2.3.69
+tgcrypto-pyrofork
 pymongo==4.13.2
-motor==2.5.1
-marshmallow==3.14.1
-umongo==3.0.1
+motor==3.7.1
+marshmallow<4.0.0
+umongo
 Pillow==9.4.0
 pikepdf
 pyromod
+opencv-python-headless==4.8.1.78
+python-dotenv==0.21.1
+PyLeaves==1.0.2
 
 tgcrypto
 requests
@@ -27,13 +31,10 @@ wget
 aiofiles
 hachoir
 python-decouple
-ffmpeg-python>=0.2.0
+ffmpeg-python==0.2.0
 youtube_search
-PyLeaves
 youtube-search-python
-opencv-python-headless
 googletrans
-python-dotenv
 gTTS
 speedtest
 humanize
@@ -44,4 +45,5 @@ git+https://github.com/Joelkb/cinemagoer
 rarfile
 pyzipper
 imageio-ffmpeg>=0.4.10
+
 
